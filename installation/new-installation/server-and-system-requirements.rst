@@ -12,6 +12,16 @@ Web server
 * 500 MB of free webspace for Community and Professional Edition
 * 750 MB of free webspace for Enterprise Edition
 * Installed *mod_rewrite* extension
+* Cryptographically-sufficient configuration
+
+..  tip::
+    **What is cryptographically-sufficient configuration and how to achieve it?**
+
+    One of the features of a secure web application is the ability to generate cryptographically-strong random values.
+    This is why PHP process needs to have access to an appropriate source of randomness for its CSPRNG
+    (*Cryptographically Secure Pseudorandom Number Generator*) functions (`random_int()`, `random_bytes()`).
+    In most cases no additional tweaking from your side will be necessary and application elements should work together out of the box.
+    Otherwise, you may start troubleshooting by looking through documentation for the aforementioned PHP functions.
 
 Please note that even with the *mod_rewrite* extension installed, the system health check may not meet the requirements. Often, one of the reasons for this is the setting for *AllowOverride* in the Apache vhost configuration. This was changed to *AllowOverride None* with Apache 2.3.9.
 
